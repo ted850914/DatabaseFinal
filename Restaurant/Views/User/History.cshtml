@@ -1,0 +1,57 @@
+﻿@model Restaurant.Models.History
+@{
+	ViewBag.Title = "History";
+}
+
+<p class="control-label" style="font-size:36px;">歷史資料</p>
+@using (Html.BeginForm())
+{
+	<div style="margin-top: 20px; margin-bottom: 10px">
+		<div style="width: 650px; margin-left: 10px;" class="float_left TableBorder">
+			@foreach (var order in Model.order)
+			{
+				<div style="background-color: #a7dfe8; color: #000; font-weight: bold; padding-left: 10px;
+                padding-top: 5px; padding-bottom: 5px">
+					下單時間：@order.receive_time &nbsp; 預計送達時間：@order.arrive_time
+				</div>
+				<div style="background-color:#FFF">
+					<table cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+						<tbody>
+							<tr>
+								<td>
+									<div style="border-bottom: dotted 1px #797979; padding: 20px;">
+										@for (int i = 0; i < Model.order.Count(); i++)
+										{
+											if (Model.order_detail.ElementAt(i).First().order_id == order.order_id)
+											{
+												foreach (var order_detail in Model.order_detail.ElementAt(i))
+												{
+													<div class="float_left" style="margin-top: 1px; margin-left: 7px">
+														<span style="font-weight: bold">
+															@foreach (var meal in Model.meal)
+															{
+																if (meal.meal_id == order_detail.meal_id)
+																{
+																	<span>@meal.name * @order_detail.quantity</span>
+																	break;
+																}
+															}
+														</span>
+													</div>
+												}
+												break;
+											}
+										}
+										<div class="float_right" style="font-weight: bold">
+											<span class="Price"><span>共 $@order.money 元</span></span>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			}
+		</div>
+	</div>
+}

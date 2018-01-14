@@ -5,13 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="59665a681d064066bcbf534e76821bd6" Name="Diagram1">
-        <EntityTypeShape EntityType="DatabaseModel.Address" Width="1.5" PointX="5.625" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Meal" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Order" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.User" Width="1.5" PointX="3.375" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Combo" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Order_Detail" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="DatabaseModel.FK_Address_ToUser" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.FK_Combo_ToMeal" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.FK_Combo_ToMeal2" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.FK_Order_Detail_ToMeal" ManuallyRouted="false" />

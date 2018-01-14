@@ -1,0 +1,94 @@
+.navbar{ background:#fff; z-index:1; position:relative;}
+/*å³ä¸Šé€£çµ*/
+.navbar ul.nav_sub{ text-align:right; padding:.6em 0 .4em;}
+.navbar ul.nav_sub li{ display:inline-block; color:#c39b4e; text-decoration:none; font-size:.9em;}
+.navbar ul.nav_sub li:after{ content:'|'; padding:0 .6em;}
+.navbar ul.nav_sub li:last-child:after{ content:''; padding:0 .6em 0 0;}
+/*logo*/
+.navbar  a.logo{ display:block; float:left; margin-top:20px;}
+.navbar  a.logo:before{ content:''; display: block; width:100%; padding-top:63.7%; background:url(/images/logo.png); background-size:cover;}
+/*ä¸»é¸å–®*/
+.navbar .nav ul{ font-family:'cwTeXYen','å¾®è»Ÿæ­£é»‘é«”',sans-serif;}
+.navbar .nav ul li{ font-size:1.2em; color:#c39b4e; text-decoration:none; font-weight:600;}
+.navbar .nav ul li a:before{ content:''; background:url(../images/icon_nav.png); background-size:800%; width:1em; padding-top:.8em; display:inline-block; vertical-align:middle; margin-bottom:.2em;}
+.navbar .nav ul li.menu_02 a:before{ background-position:-100% 0;}
+.navbar .nav ul li.menu_03 a:before{ background-position:-200% 0;}
+.navbar .nav ul li.menu_04 a:before{ background-position:-300% 0;}
+.navbar .nav ul li.menu_05 a:before{ background-position:-400% 0;}
+.navbar .nav ul li.menu_06 a:before{ background-position:-500% 0;}
+.navbar .nav ul li.menu_07 a:before{ background-position:-600% 0;}
+.navbar .nav ul li.menu_08 a:before{ background-position:-700% 0;}
+.navbar .nav ul li a{ display:block;}
+.navbar .nav .sub{ display:none; width:100%; position:absolute; left:0; text-align:center;}
+.navbar .nav .sub .box{background:#d12027; padding:1em .6em; box-sizing:border-box; margin-top:-8px; border-radius:.4em;}
+.navbar .nav .sub ul{ display:inline-block; box-sizing:border-box; font-size:.8em; vertical-align:top;}
+.navbar .nav ul li.menu_01 .sub ul.menus{ width:75%;}
+.navbar .nav ul li.menu_01 .sub ul.recommended{ width:24%;}
+.navbar .nav ul li.menu_01 .sub ul li a{ transition:all .6s; padding:.4em;}
+.navbar .nav ul li.menu_01 .sub ul li a:hover{ opacity:.7;}
+.navbar .nav ul li.menu_01 .sub ul.menus li{display:inline-block; box-sizing:border-box; width:13.6%; background:#fff; text-align:center; border-radius:.4em;}
+.navbar .nav ul li.menu_01 .sub ul.menus li img{ width:100%;}
+.navbar .nav ul li.menu_01 .sub ul.menus li a{ }
+.navbar .nav ul li.menu_01 .sub ul.menus li a:hover{ color:#c39b4e;}
+.navbar .nav ul li.menu_01 .sub ul.menus li a:before{ display:none;}
+.navbar .nav ul li.menu_01 .sub ul.menus li a:after{ content:'\f0da'; margin-left:.2em;}
+.navbar .nav ul li.menu_01 .sub ul.recommended li{ text-align:center; display:block; border:solid 1px #fff; border-radius:.4em; margin-bottom:.4em;}
+.navbar .nav ul li.menu_01 .sub ul.recommended li a{ color:#fff;}
+.navbar .nav ul li.menu_01 .sub ul.recommended li a:before{ background:url(../images/icon_nav_menu1.png); background-size:300%; width:1.2em; padding-top:1.2em; margin-bottom:.4em;}
+.navbar .nav ul li.menu_01 .sub ul.recommended li:nth-child(2) a:before{ background-position:-100% 0;}
+.navbar .nav ul li.menu_01 .sub ul.recommended li:nth-child(3) a:before{ background-position:-200% 0;}
+/*iconé€£çµ*/
+.navbar ul.m_link{ font-family:'cwTeXYen'; text-align:right; padding:.8em 0; height:50px;}
+.navbar ul.m_link li{ display:inline-block; font-size:.9em; color:#d12027; text-decoration:none; font-weight:800; margin:0 .2em; letter-spacing:-1px; line-height:1.2em; vertical-align:middle; width:22%;  max-width:80px; height:100%; text-align:center; position:relative;}
+.navbar ul.m_link li a{ box-sizing:border-box; width:100%; padding:.5em .4em .3em; display:block; border-radius:.4em; border:solid 1px #d12027;  height:100%;}
+.navbar ul.m_link li a:before{ content:''; background:url(../images/icon_nav.png); background-size:800%; width:1.8em; padding-top:1.45em; display:block; margin:0 auto .1em;}
+.navbar ul.m_link li:nth-child(1) a:before{ background-position:0 100%}
+.navbar ul.m_link li:nth-child(2) a:before{ background-position:-100% 100%}
+/*æ”¶åˆéˆ•*/
+.navbar ul.m_link li.navbar-toggle {  background:#d12027; padding:0; width:18%; max-width:50px; border-radius:.4em; position:relative; transition:all .6s;}
+.navbar ul.m_link li.navbar-toggle:before { content: ''; display:block; width:100%;/* padding-top:100%;*/}
+.navbar-toggle span {transition:all .6s; position:absolute; top:50%; left:50%; width:70%; margin-top:-2px; margin-left:-35%; height:4px; padding:0; background:#fff; border-radius:10px; }
+.navbar-toggle span:nth-child(1){margin-top:-24%;}
+.navbar-toggle span:nth-child(3) {margin-top:16%;}
+.navbar ul.m_link li.navbar-toggle.on span:nth-child(1){ margin-top:-3%; transform:rotate(45deg);}
+.navbar ul.m_link li.navbar-toggle.on span:nth-child(2){ opacity:0;}
+.navbar ul.m_link li.navbar-toggle.on span:nth-child(3){ margin-top:-3%; transform:rotate(-45deg);}
+
+/*æ‰‹æ©Ÿç‰ˆ*/
+@media(max-width:1330px) {
+.container{ padding:0 10px;}
+.navbar ul.nav_sub ,.navbar .nav{position:absolute; display:none; width:100%; left:0; top:100%;}
+.navbar .nav.on{ display:block; top:100%; left:0; }
+.navbar .nav ul{ background:#d12027; width:100%; padding:10px; box-sizing:border-box;}
+.navbar .nav ul li{ background:#fff; border-radius:.3em; margin-bottom:.4em;}
+.navbar .nav ul li a{ padding:.6em;}
+.navbar .nav ul li a:before{ width:1.2em; padding-top:1em; vertical-align:bottom;}
+.navbar .nav ul li a:after{ content:'\f0da'; position:absolute; right:20px;}
+.navbar  a.logo{ width:25%; max-width:86px; margin-top:.8em;}
+.navbar .m_nav_sub{ display:block; text-align:right; background:#d12027; padding:10px;  margin-top:-10px;}
+.navbar .m_nav_sub a{ padding:.6em .6em .6em 1em; display:inline-block;color:#fff; font-size:.9em; }
+.navbar .m_nav_sub a:after{ content:'\f0da'; padding-left:.4em; display:inline-block;}
+}
+
+/*æ¡Œæ©Ÿç‰ˆ*/
+@media(min-width:1329px) {
+.container{ padding:0 20px;}
+.navbar{ padding-bottom:.4em;}
+.navbar ul.m_link ,.navbar .m_nav_sub{ display:none;}
+.navbar  a.logo{ width:90px; margin-top:20px;}
+/*ä¸»é¸å–®*/
+.navbar .nav ul{ font-family:'cwTeXYen'; text-align:right;}
+.navbar .nav ul li{ display:inline-block;}
+.navbar .nav ul li a{ padding:.8em .6em;}
+.navbar .nav ul li a:before{ width:1em; }
+.navbar .nav ul li:hover{color:#fff; background:#d12027; border-radius:.4em;}
+.navbar .nav ul li:hover.menu_01 a:before{ background-position:0 -100%;}
+.navbar .nav ul li:hover.menu_02 a:before{ background-position:-100% -100%;}
+.navbar .nav ul li:hover.menu_03 a:before{ background-position:-200% -100%;}
+.navbar .nav ul li:hover.menu_04 a:before{ background-position:-300% -100%;}
+.navbar .nav ul li:hover.menu_05 a:before{ background-position:-400% -100%;}
+.navbar .nav ul li:hover.menu_06 a:before{ background-position:-500% -100%;}
+.navbar .nav ul li:hover.menu_07 a:before{ background-position:-600% -100%;}
+.navbar .nav ul li:hover.menu_08 a:before{ background-position:-700% -100%;}
+.navbar .nav ul li:hover .sub{ display:block;}
+}

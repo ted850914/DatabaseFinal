@@ -1,0 +1,20 @@
+footer{ position:absolute; bottom:0; width:100%; height:auto;}
+footer{ background:url(../images/bg_footer.jpg); color:#62945b; font-size:.75em; line-height:1.5em; padding:.8em 0; text-align:center;}
+footer:before{ content:''; position:absolute; bottom:100%; padding-top:23.25%; background:url(../images/bg_body.png) right bottom no-repeat; background-size:100% auto; z-index:-2;}
+footer a{ color:#62945b; text-decoration:none;}
+footer .btn{ border:solid 1px #62945b; display:inline-block; width:20%; padding:.6em .2em; margin:1em .5%; transition:.6s;}
+footer .btn:hover ,footer .btn:focus{ background:rgba(255,255,255,.7); text-decoration:none; color:#62945b;}
+footer .btn:after{ content:'\f0da'; font-size:1.4em;}
+footer ul.copyright{ text-align:center;}
+footer ul.copyright li{ display:inline-block; margin-right:1em;}
+/*桌機版*/
+@media (min-width:769px) {
+footer .btn_box{ width:50%; margin:0 auto;}
+footer:before{ left:49%; width:50%; max-width:600px; }
+}
+/*手機版*/
+@media (max-width:768px) {
+footer:before{ left:29%; width:70%;}
+footer .btn{ width:48%; margin-bottom:0;}
+
+}

@@ -101,9 +101,85 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrapWeb.css" />
+    <Content Include="Content\css\footer.css" />
+    <Content Include="Content\css\header.css" />
+    <Content Include="Content\css\reset.css" />
+    <Content Include="Content\css\Site.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\images\food\10.jpg" />
+    <Content Include="Content\images\food\11.jpg" />
+    <Content Include="Content\images\food\12.jpg" />
+    <Content Include="Content\images\food\15.jpg" />
+    <Content Include="Content\images\food\16.jpg" />
+    <Content Include="Content\images\food\17.jpg" />
+    <Content Include="Content\images\food\18.jpg" />
+    <Content Include="Content\images\food\19.jpg" />
+    <Content Include="Content\images\food\2.jpg" />
+    <Content Include="Content\images\food\20.jpg" />
+    <Content Include="Content\images\food\21.jpg" />
+    <Content Include="Content\images\food\22.jpg" />
+    <Content Include="Content\images\food\23.jpg" />
+    <Content Include="Content\images\food\24.jpg" />
+    <Content Include="Content\images\food\25.jpg" />
+    <Content Include="Content\images\food\26.jpg" />
+    <Content Include="Content\images\food\27.jpg" />
+    <Content Include="Content\images\food\28.jpg" />
+    <Content Include="Content\images\food\29.jpg" />
+    <Content Include="Content\images\food\3.jpg" />
+    <Content Include="Content\images\food\30.jpg" />
+    <Content Include="Content\images\food\31.jpg" />
+    <Content Include="Content\images\food\32.jpg" />
+    <Content Include="Content\images\food\33.jpg" />
+    <Content Include="Content\images\food\35.jpg" />
+    <Content Include="Content\images\food\36.jpg" />
+    <Content Include="Content\images\food\37.jpg" />
+    <Content Include="Content\images\food\39.jpg" />
+    <Content Include="Content\images\food\40.jpg" />
+    <Content Include="Content\images\food\41.jpg" />
+    <Content Include="Content\images\food\42.jpg" />
+    <Content Include="Content\images\food\43.jpg" />
+    <Content Include="Content\images\food\44.jpg" />
+    <Content Include="Content\images\food\45.jpg" />
+    <Content Include="Content\images\food\46.jpg" />
+    <Content Include="Content\images\food\47.jpg" />
+    <Content Include="Content\images\food\48.jpg" />
+    <Content Include="Content\images\food\49.jpg" />
+    <Content Include="Content\images\food\5.jpg" />
+    <Content Include="Content\images\food\51.jpg" />
+    <Content Include="Content\images\food\52.jpg" />
+    <Content Include="Content\images\food\53.jpg" />
+    <Content Include="Content\images\food\55.jpg" />
+    <Content Include="Content\images\food\57.jpg" />
+    <Content Include="Content\images\food\58.jpg" />
+    <Content Include="Content\images\food\59.jpg" />
+    <Content Include="Content\images\food\60.jpg" />
+    <Content Include="Content\images\food\61.jpg" />
+    <Content Include="Content\images\food\62.jpg" />
+    <Content Include="Content\images\food\63.jpg" />
+    <Content Include="Content\images\food\64.jpg" />
+    <Content Include="Content\images\food\65.jpg" />
+    <Content Include="Content\images\food\66.jpg" />
+    <Content Include="Content\images\food\67.jpg" />
+    <Content Include="Content\images\food\68.jpg" />
+    <Content Include="Content\images\food\69.jpg" />
+    <Content Include="Content\images\food\7.jpg" />
+    <Content Include="Content\images\food\70.jpg" />
+    <Content Include="Content\images\food\71.jpg" />
+    <Content Include="Content\images\food\72.jpg" />
+    <Content Include="Content\images\food\73.jpg" />
+    <Content Include="Content\images\food\74.jpg" />
+    <Content Include="Content\images\food\75.jpg" />
+    <Content Include="Content\images\food\76.jpg" />
+    <Content Include="Content\images\food\78.jpg" />
+    <Content Include="Content\images\food\79.jpg" />
+    <Content Include="Content\images\food\8.jpg" />
+    <Content Include="Content\images\food\80.jpg" />
+    <Content Include="Content\images\food\81.jpg" />
+    <Content Include="Content\images\food\9.jpg" />
+    <Content Include="Content\images\logo.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Models\Model.Context.tt">
@@ -131,16 +207,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Address.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\CartModel.cs" />
     <Compile Include="Models\Combo.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\History.cs" />
     <Compile Include="Models\loginModel.cs" />
     <Compile Include="Models\Meal.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\mealModel.cs" />
     <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -156,15 +233,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\OperationModel.cs" />
     <Compile Include="Models\Order.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order_Detail.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PersonInformation.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserPassword.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,9 +267,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\User\Test.cshtml" />
     <Content Include="Views\User\Logout.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\History.cshtml" />
+    <Content Include="Views\User\Modify.cshtml" />
+    <Content Include="Views\Restaurant\Menu.cshtml" />
+    <Content Include="Views\User\Order_Confirm.cshtml" />
+    <Content Include="Views\User\ModifyPassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

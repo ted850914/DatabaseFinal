@@ -5,28 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Address">
-          <Key>
-            <PropertyRef Name="address_id" />
-          </Key>
-          <Property Name="address_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="user_id" Type="int" Nullable="false" />
-          <Property Name="city" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="town" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="road" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="number" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\USERS\ASUSLJ\DESKTOP\RESTAURANT\RESTAURANT\APP_DATA\DATABASE.MDF.dbo.Combo' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
         <EntityType Name="Combo">
           <Key>
             <PropertyRef Name="combo_id" />
             <PropertyRef Name="cell_id" />
-            <PropertyRef Name="number" />
           </Key>
           <Property Name="combo_id" Type="int" Nullable="false" />
           <Property Name="cell_id" Type="int" Nullable="false" />
-          <Property Name="number" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Meal">
           <Key>
@@ -51,17 +37,14 @@
           <Property Name="remark" Type="nvarchar(max)" Nullable="false" />
           <Property Name="status" Type="int" Nullable="false" />
         </EntityType>
-        <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\USERS\ASUSLJ\DESKTOP\RESTAURANT\RESTAURANT\APP_DATA\DATABASE.MDF.dbo.Order_Detail' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
         <EntityType Name="Order_Detail">
           <Key>
             <PropertyRef Name="order_id" />
             <PropertyRef Name="meal_id" />
-            <PropertyRef Name="number" />
           </Key>
           <Property Name="order_id" Type="int" Nullable="false" />
           <Property Name="meal_id" Type="int" Nullable="false" />
-          <Property Name="number" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -75,20 +58,12 @@
           <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="phone" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="admin" Type="bit" Nullable="false" />
+          <Property Name="city" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="town" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="road" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="address_number" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="salt" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Address_ToUser">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Address" Type="Self.Address" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="Address">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Combo_ToMeal">
           <End Role="Meal" Type="Self.Meal" Multiplicity="1" />
           <End Role="Combo" Type="Self.Combo" Multiplicity="*" />
@@ -150,28 +125,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DatabaseModelStoreContainer">
-          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Combo" EntityType="Self.Combo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Meal" EntityType="Self.Meal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_Detail" EntityType="Self.Order_Detail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Combo" EntityType="Self.Combo" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Combo].[combo_id] AS [combo_id], 
-    [Combo].[cell_id] AS [cell_id], 
-    [Combo].[number] AS [number]
-    FROM [dbo].[Combo] AS [Combo]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Order_Detail" EntityType="Self.Order_Detail" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Order_Detail].[order_id] AS [order_id], 
-    [Order_Detail].[meal_id] AS [meal_id], 
-    [Order_Detail].[number] AS [number]
-    FROM [dbo].[Order_Detail] AS [Order_Detail]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK_Address_ToUser" Association="Self.FK_Address_ToUser">
-            <End Role="User" EntitySet="User" />
-            <End Role="Address" EntitySet="Address" />
-          </AssociationSet>
           <AssociationSet Name="FK_Combo_ToMeal" Association="Self.FK_Combo_ToMeal">
             <End Role="Meal" EntitySet="Meal" />
             <End Role="Combo" EntitySet="Combo" />
@@ -197,18 +155,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Address">
-          <Key>
-            <PropertyRef Name="address_id" />
-          </Key>
-          <Property Name="address_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="user_id" Type="Int32" Nullable="false" />
-          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="town" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="road" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Address_ToUser" FromRole="Address" ToRole="User" />
-        </EntityType>
         <EntityType Name="Meal">
           <Key>
             <PropertyRef Name="meal_id" />
@@ -249,46 +195,35 @@
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="admin" Type="Boolean" Nullable="false" DefaultValue="False" />
-          <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_ToUser" FromRole="User" ToRole="Address" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Order_ToUser" FromRole="User" ToRole="Order" />
+          <Property Name="city" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="town" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="road" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="address_number" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="salt" Type="Guid" Nullable="false" />
         </EntityType>
         <EntityType Name="Combo">
           <Key>
             <PropertyRef Name="combo_id" />
             <PropertyRef Name="cell_id" />
-            <PropertyRef Name="number" />
           </Key>
           <Property Name="combo_id" Type="Int32" Nullable="false" />
           <Property Name="cell_id" Type="Int32" Nullable="false" />
-          <Property Name="number" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Meal" Relationship="Self.FK_Combo_ToMeal" FromRole="Combo" ToRole="Meal" />
           <NavigationProperty Name="Meal1" Relationship="Self.FK_Combo_ToMeal2" FromRole="Combo" ToRole="Meal" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Order_Detail">
           <Key>
             <PropertyRef Name="order_id" />
             <PropertyRef Name="meal_id" />
-            <PropertyRef Name="number" />
           </Key>
           <Property Name="order_id" Type="Int32" Nullable="false" />
           <Property Name="meal_id" Type="Int32" Nullable="false" />
-          <Property Name="number" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Meal" Relationship="Self.FK_Order_Detail_ToMeal" FromRole="Order_Detail" ToRole="Meal" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Detail_ToOrder" FromRole="Order_Detail" ToRole="Order" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Address_ToUser">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Address" Type="Self.Address" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="Address">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Combo_ToMeal">
           <End Role="Meal" Type="Self.Meal" Multiplicity="1" />
           <End Role="Combo" Type="Self.Combo" Multiplicity="*" />
@@ -350,16 +285,11 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DatabaseEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Addresses" EntityType="Self.Address" />
           <EntitySet Name="Meals" EntityType="Self.Meal" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Comboes" EntityType="Self.Combo" />
           <EntitySet Name="Order_Detail" EntityType="Self.Order_Detail" />
-          <AssociationSet Name="FK_Address_ToUser" Association="Self.FK_Address_ToUser">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Address" EntitySet="Addresses" />
-          </AssociationSet>
           <AssociationSet Name="FK_Combo_ToMeal" Association="Self.FK_Combo_ToMeal">
             <End Role="Meal" EntitySet="Meals" />
             <End Role="Combo" EntitySet="Comboes" />
@@ -387,18 +317,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities1">
-          <EntitySetMapping Name="Addresses">
-            <EntityTypeMapping TypeName="DatabaseModel.Address">
-              <MappingFragment StoreEntitySet="Address">
-                <ScalarProperty Name="address_id" ColumnName="address_id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="town" ColumnName="town" />
-                <ScalarProperty Name="road" ColumnName="road" />
-                <ScalarProperty Name="number" ColumnName="number" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Meals">
             <EntityTypeMapping TypeName="DatabaseModel.Meal">
               <MappingFragment StoreEntitySet="Meal">
@@ -427,6 +345,10 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="DatabaseModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="address_number" ColumnName="address_number" />
+                <ScalarProperty Name="road" ColumnName="road" />
+                <ScalarProperty Name="town" ColumnName="town" />
+                <ScalarProperty Name="city" ColumnName="city" />
                 <ScalarProperty Name="salt" ColumnName="salt" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="account" ColumnName="account" />
@@ -442,18 +364,18 @@
           <EntitySetMapping Name="Comboes">
             <EntityTypeMapping TypeName="DatabaseModel.Combo">
               <MappingFragment StoreEntitySet="Combo">
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
                 <ScalarProperty Name="combo_id" ColumnName="combo_id" />
                 <ScalarProperty Name="cell_id" ColumnName="cell_id" />
-                <ScalarProperty Name="number" ColumnName="number" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Order_Detail">
             <EntityTypeMapping TypeName="DatabaseModel.Order_Detail">
               <MappingFragment StoreEntitySet="Order_Detail">
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
                 <ScalarProperty Name="order_id" ColumnName="order_id" />
                 <ScalarProperty Name="meal_id" ColumnName="meal_id" />
-                <ScalarProperty Name="number" ColumnName="number" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

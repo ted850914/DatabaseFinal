@@ -18,7 +18,6 @@ namespace Restaurant.Models
         public User()
         {
             this.admin = false;
-            this.Addresses = new HashSet<Address>();
             this.Orders = new HashSet<Order>();
         }
     
@@ -30,10 +29,12 @@ namespace Restaurant.Models
         public string email { get; set; }
         public string phone { get; set; }
         public bool admin { get; set; }
+        public string city { get; set; }
+        public string town { get; set; }
+        public string road { get; set; }
+        public string address_number { get; set; }
         public System.Guid salt { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Address> Addresses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }

@@ -1,0 +1,165 @@
+﻿@model Restaurant.Models.mealModel
+@{
+	ViewBag.Title = "Menu";
+	var currentCart = Restaurant.Models.OperationModel.GetCurrentCart();
+}
+<link href="~/Content/css/bootstrapWeb.css" rel="stylesheet" type="text/css" />
+@using (Html.BeginForm())
+{
+	<div class="warp">
+		<div class="main" style="float:none;">
+			@if (Model.MealCollection.Count() == 1)
+			{
+				foreach (var meal in Model.MealCollection)
+				{
+					<div class="pieces">
+						<div class="photo">
+							<img src="~/Content/images/food/@(Html.DisplayFor(x => meal.meal_id)).jpg">
+						</div>
+						<div class="info">
+							<h1><span>@Html.DisplayFor(x => meal.name)</span></h1>
+							<p><span>@Html.DisplayFor(x => meal.description)</span></p>
+							<div class="price">
+								<span id="mainContent_lblPrice" class="set"><i class="fa fa-usd"></i>@Html.DisplayFor(x => meal.money)</span>
+							</div>
+						</div>
+					</div>
+				}
+			}
+			else
+			{
+			<!-- 商品列表 -->
+				<ul class="productsList" style="margin-right:0%">
+					@foreach (var meal in Model.MealCollection)
+					{
+						<li>
+							<a href="~/Restaurant/Menu?id=@(Html.DisplayFor(x => meal.meal_id))">
+								<div class="plImage">
+									<img src="~/Content/images/food/@(Html.DisplayFor(x => meal.meal_id)).jpg">
+								</div>
+								<h1>@Html.DisplayFor(x => meal.name)</h1>
+								<div class="price">
+									<span class="set"><i class="fa fa-usd"></i>@Html.DisplayFor(x => meal.money)</span>
+								</div>
+
+							</a>
+							<div class="float_right btnDefault" style="margin-top: 2px; font-size: 14px;">
+								<input type="button" value="訂購" onclick="AddToCart(@(meal.meal_id), '@(meal.name)')" />
+							</div>
+						</li>
+					}
+				</ul>
+			}
+		</div>
+		<aside>
+			<h1 class="menu">美味專區</h1>
+			<ul>
+				<li><a href="~/Restaurant/Menu?type=set">主餐</a></li>
+				<li><a href="~/Restaurant/Menu?type=sideDishes">副餐</a></li>
+				<li><a href="~/Restaurant/Menu?type=soup">湯品</a></li>
+				<li><a href="~/Restaurant/Menu?type=beverage">飲品</a></li>
+				<li><a href="~/Restaurant/Menu?type=dessert">甜品</a></li>
+				<li><a href="~/Restaurant/Menu?type=combine">盒餐</a></li>
+				<li><a href="~/Restaurant/Menu?type=hot">熱門排行</a></li>
+			</ul>
+			<input type="text" id="keyword" style="width:100%;"/>
+			<input type="button" value="關鍵字查詢" style="width:100%;" onclick="KeywordSearch()" />
+		</aside>
+
+		<div style="float:right;">
+			<div style="margin-top: 5px; padding: 5px 0px; background-color: #f9f0d9;">
+				訂單明細
+			</div>
+			<div style="text-align: center; margin-top: 20px; margin-bottom: 20px">
+				@foreach (var cartitem in currentCart)
+				{
+					<table style="width:100%;border-collapse:collapse;">
+						<tr>
+							<td>
+								<div>
+									<div class="float_left btnDelProd" style="margin: 5px 1px 0px 2px">
+										<input type="submit" value="X" onclick="RemoveFromCart(@(cartitem.id), '@(cartitem.name)')" />
+									</div>
+									<div class="float_left" style="margin-top: 1px; margin-left: 7px; width: 180px">
+										<span style="font-weight: bold">
+											<span>@cartitem.name</span>
+										</span>
+									</div>
+									<div class="float_right Price" style="font-weight: bold">
+										<span>$@cartitem.money</span>
+										<span class="fontGreen">*@cartitem.quantity</span>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				}
+			</div>
+
+			<div style="border-top: solid 1px #cbcbcb; margin-top: 15px; padding: 8px 5px; font-size: 1.3em;
+                        font-weight: bold">
+				<div class="float_left">
+					總 計
+				</div>
+				<div class="float_right">
+					NT$<span class="Price">
+						<span>@currentCart.TotalAmont</span>
+					</span>元
+				</div>
+				<div class="clear">
+				</div>
+			</div>
+			<div class="btnSendOrder" style="margin-top: 10px; text-align: center;">
+				<div>
+					<input type="button" value="清空購物車" onclick="RemoveAll()">
+				</div>
+			</div>
+			<div class="btnSendOrder" style="margin-top: 10px; text-align: center;">
+				<div>
+					<input type="button" value="結　帳" onclick="Checkout()">
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		function AddToCart(id, name) {
+			$.ajax({
+				type: 'POST',
+				url: '@Url.Action("AddFood","Restaurant")',
+				data: { id: id }
+			});
+			alert(name + " 已加入購物車");
+			window.location.reload();
+		}
+
+		function RemoveFromCart(id, name) {
+			$.ajax({
+				type: 'POST',
+				url: '@Url.Action("RemoveFood","Restaurant")',
+				data: { id: id }
+			});
+			alert(name + " 已移除購物車");
+			window.location.reload();
+		}
+
+		function Checkout() {
+			window.location.replace("/User/Order_Confirm");
+		}
+
+		function KeywordSearch() {
+			var keyword = document.getElementById("keyword").value;
+			window.location.replace("?keyword=" + keyword);
+		}
+
+		function RemoveAll() {
+				$.ajax({
+				type: 'POST',
+				url: '@Url.Action("RemoveAll","Restaurant")',
+				data: {}
+			});
+			alert("已清空購物車");
+			window.location.reload();
+		}
+
+	</script>
+}

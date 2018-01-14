@@ -1,25 +1,40 @@
-﻿
+﻿@model Restaurant.Models.loginModel
 @{
-    ViewBag.Title = "Login";
+	ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
+<p class="control-label" style="font-size:36px;">登入</p>
+
 @using (Html.BeginForm())
 {
-	<div>
-		@Html.Label("帳號：")
-		<input type="text" name="lm_username">
-		<br />
-		@Html.Label("密碼：")
-		<input type="text" name="lm_password">
+	@Html.AntiForgeryToken()
+
+	<div class="form-horizontal">
+		<hr />
+		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+		<div class="form-group">
+			<p class="control-label col-md-2" style="display:inline">帳號</p>
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.lm_username, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.lm_username, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			<p class="control-label col-md-2" style="display:inline">密碼</p>
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.lm_password, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.lm_password, "", new { @class = "text-danger" })
+				<p class="text-danger" style="display:inline">@ViewBag.Message</p>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10">
+				<input type="submit" value="登入" class="btn btn-default" />
+			</div>
+		</div>
 	</div>
-	<div>
-		使用者輸入的帳號為：@ViewBag.username<br />
-		使用者輸入的密碼為：@ViewBag.password<br />
-		訊息：@ViewBag.message<br />
-		儲存的密碼：@ViewBag.savedHPW<br />
-		Hash後的輸入密碼：@ViewBag.inputHPW
-	</div>
-	<input type="submit" value="登入" />
 }
 

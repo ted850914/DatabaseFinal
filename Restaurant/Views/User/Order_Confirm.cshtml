@@ -1,0 +1,145 @@
+﻿@model Restaurant.Models.Order
+@{
+	ViewBag.Title = "Order_Confirm";
+	var currentCart = Restaurant.Models.OperationModel.GetCurrentCart();
+	Restaurant.Models.PersonInformation pi = new Restaurant.Models.PersonInformation();
+	Restaurant.Models.DatabaseEntities1 db = new Restaurant.Models.DatabaseEntities1();
+	var ur = (from u in db.Users
+			  where u.account == User.Identity.Name
+			  select u).FirstOrDefault();
+	pi.last_name = ur.last_name;
+	pi.first_name = ur.first_name;
+	pi.email = ur.email;
+	pi.phone = ur.phone;
+	pi.city = ur.city;
+	pi.town = ur.town;
+	pi.road = ur.road;
+	pi.address_number = ur.address_number;
+}
+<link href="~/Content/css/bootstrapWeb.css" rel="stylesheet" type="text/css" />
+
+@using (Html.BeginForm())
+{
+	<div style="margin-top: 20px; margin-bottom: 10px">
+		<div class="TableBorder float_right" style="width: 300px; margin-right: 10px;">
+			<div id="remaincolor" style="border: dotted 2px #FF0000; padding: 10px; background-color: #FFFF00;" class="changecolor1">
+				<div style="font-weight: bold; text-decoration: underline; text-align: center; font-size: 1.2em;
+                    margin-bottom: 5px">
+					注意!! 此訂單尚未送出
+				</div>
+				<div style="text-align: justify; text-justify: inter-ideograph; font-size: 0.9em">
+					請確認此訂單內容正確無誤，按下頁面右下方 "訂單送出" 鍵，此訂單將立即傳送，謝謝。
+				</div>
+			</div>
+			<div style="margin: 10px 0px; text-align: center">
+				<div>
+					<input type="button" value="修改" onclick="back()">
+					<input type="button" value="訂&nbsp;單&nbsp;送&nbsp;出" onclick="send()">
+				</div>
+			</div>
+			<div style="text-align: center; background-color: #c39b4e; color: #000; font-weight: bold;
+                font-size: 1.3em; padding: 5px 0px">
+				我的訂單
+			</div>
+			<div style="border-bottom: solid 1px #dddddd; padding: 10px">
+				<table>
+					<tbody>
+						<tr>
+							<td style="padding-right: 10px">
+								姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:
+							</td>
+							<td>
+								<span>@pi.last_name@pi.first_name</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								電&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;話:
+							</td>
+							<td>
+								<span>@pi.phone</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:
+							</td>
+							<td>
+								<span>@(pi.city)&nbsp;@(pi.town)&nbsp;@(pi.road)&nbsp;@(pi.address_number)號</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div style="border-bottom: solid 1px #dddddd; padding: 10px">
+				<div class="float_left" style="margin-right: 10px; margin-top: 2px">
+					備&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;註:
+				</div>
+				<div class="float_left">
+					<textarea id="remark" rows="6" cols="20" style="height:100px;width:190px;"></textarea>
+				</div>
+				<div class="clear">
+				</div>
+			</div>
+
+			<div style="border-bottom: solid 1px #dddddd; padding: 10px; font-size: 1.3em; font-weight: bold">
+				<div class="float_left">
+					總　　計
+				</div>
+				<div class="float_right">
+					NT$<span class="Price">
+						<span class="Price">@currentCart.TotalAmont</span>
+					</span>元
+				</div>
+				<div class="clear">
+				</div>
+			</div>
+		</div>
+		<div style="width: 650px; margin-left: 10px;" class="float_left TableBorder">
+			<div style="background-color: #a7dfe8; color: #FFF; font-weight: bold; padding-left: 10px;
+                padding-top: 5px; padding-bottom: 5px">
+				訂單明細
+			</div>
+			<div style="margin-top: 10px">
+				@foreach (var cartitem in currentCart)
+				{
+					<table cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+						<tbody>
+							<tr>
+								<td>
+									<div style="border-bottom: dotted 1px #797979; padding: 20px">
+										<div class="float_left" style="margin-top: 1px; margin-left: 7px">
+											<span style="font-weight: bold">
+												<span>@cartitem.name</span>
+											</span>
+										</div>
+										<div class="float_right" style="font-weight: bold">
+											<span class="Price"><span>$@cartitem.money</span></span>
+											<span class="fontGreen"><span>*@cartitem.quantity</span></span>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				}
+			</div>
+		</div>
+	</div>
+	<script>
+		function back() {
+			window.location.replace("/Restaurant/Menu");
+		}
+		function send() {
+			var remark = document.getElementById("remark").value;
+			$.ajax({
+				type: 'POST',
+				url: '@Url.Action("SendOrder", "User")',
+				data: { remark: remark }
+			});
+			alert("訂單已送出");
+			window.location.replace("/User/History");
+		}
+	</script>
+}
+

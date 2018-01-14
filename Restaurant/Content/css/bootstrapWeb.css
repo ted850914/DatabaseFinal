@@ -1,0 +1,1641 @@
+/*********************************************
+ 共用佈局
+*********************************************/
+html, body  
+{
+    height: 100%; 
+    font-size:0.95em;
+    font-family:微軟正黑體;
+    background-color:#f9f0d9;
+}
+.float_left
+{
+    float: left;
+}
+.float_right
+{
+    float: right;
+}
+
+.clear
+{
+    clear: both;
+}
+.display_block
+{
+    display: inline-block;
+}
+.font_important
+{
+    color:#d12027;
+}
+#wrap
+{
+ min-height: 100%;
+ *display: table; /* For IE7 Hack */
+ *height: 100%; /* For IE7 Hack */
+}
+
+.wrapWidthDefault
+{
+    background-color: #FFF;
+    width:100%;
+    height:52px;
+    }
+.wrapWidth
+{
+    width:1030px; 
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+#divCenterCall
+{
+    width:1000px;
+    padding-bottom: 65px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#footer
+{
+    position: relative;
+    margin-top: -40px; /* negative value of footer height */
+    height: 40px;
+    /**background: #FFF;**/
+    background-image:url(/App_Themes/Basic_Theme/WebNew/bg_Button.png);
+    color: #589450;
+    text-align:center;
+    font-size:0.8em;
+    padding-top:10px;
+}
+.TemplateLogin
+{
+    color:#d12027;
+    float:right;
+    margin-top:15px;
+    margin-left:20px;
+    }
+.TemplateLogin .item
+{
+    margin-left:25px;
+    margin-top:3px;
+    margin-right:5px;
+    font-size:1.2em;
+    }
+.TemplateLogin a:link
+{
+    color:#d12027;
+    font-size:1.2em;
+}
+
+.TemplateLoginName
+{
+    font-weight:bold;
+    }
+img
+{
+    border:0px;
+    }
+.OrderBar
+{
+    border-bottom: dotted 1px #797979; 
+    height:1px;
+    margin-top:7px;
+    margin-bottom:7px;
+    }
+/*********************************************
+TOP LOGO
+*********************************************/
+.navbar-LOGO
+{
+  float: left;
+  height: 35px;
+  padding: 7px 7px;
+}
+.imgLOGO
+{
+    background-image:url(/App_Themes/Basic_Theme/WebNew/LOGO2.png);
+    width:147px;
+    height:37px;
+}
+/*********************************************
+說明文字
+*********************************************/
+.form-Notes
+{
+    font-style: italic;
+    color: #a0a0a0;
+    font-size:0.9em;
+    }
+ .FontColorGray
+ {
+     color: #a0a0a0;
+     }
+/*********************************************
+超連結
+*********************************************/
+a 
+{
+    color: #07b860;
+}
+a:link, a:visited, a:focus 
+{
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    
+}
+a:hover
+{
+    color:#00a728;
+}
+
+/*********************************************
+表單 Control
+*********************************************/
+input[type=text], Input[type=password], Input[type=file], textarea
+{
+    height: 30px;
+    padding: 0 10px;
+    max-width: 100%;
+    border-radius: 2px;
+    border: 1px solid silver;
+    background: #FFF;
+    font-size: 1.1em;
+}
+select 
+{
+    height: 32px;
+    border: 1px solid silver;
+}
+input[type=text]:focus, Input[type=password]:focus, Input[type=file]:focus, textarea:focus
+{
+        border-color:#339900;
+        box-shadow: 0 0 1px #a5c7fe;
+        -moz-box-shadow: 0 0 1px #a5c7fe;
+        -webkit-box-shadow: 0 0 1px #a5c7fe;
+}
+  
+input[type=button], input[type=submit]
+{
+    /**background-image:url(/App_Themes/Basic_Theme/WebNew/bg_Button.png);**/
+    
+    background-color:#d12027;
+    display: inline-block;
+    padding: 14px 19px 15px;
+    border: 0;
+    color: #FFF;
+    font-weight: 400;
+    font-family: proxima-nova,sans-serif;
+    line-height: 1.42857;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    border-radius: 0.4em;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.1);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+
+input[type=reset]
+{
+    display: inline-block;
+    padding: 13px 20px 14px;
+    border: solid 1px #dddddd;
+    font-weight: 400;
+    font-family: proxima-nova,sans-serif;
+    line-height: 1.42857;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    border-radius: 0.4em;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.1);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+input[type=button]:hover, input[type=reset]:hover, input[type=submit]:hover
+{
+    /*opacity:0.8;
+    filter: alpha(opacity=80);  For IE8 and earlier */
+    background-color:#b61c1c;
+}
+.btnReset input[type=button], .btnReset input[type=submit]
+{
+    background-image:none;
+    background-color:#CCCCCC;
+    border: solid 1px #b2b2b2;
+    font-family: proxima-nova,sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    border-radius: 0.2em;
+    -moz-box-shadow: 0 0 2px rgba(0,0,0,.1);
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,.1);
+    padding:13px 10px 13px 10px;
+}
+
+.btnResetWO03
+{
+    padding:13px 10px 13px 10px;
+    margin-right:10px;
+}
+
+.btnTopup [type=button], .btnTopup input[type=submit]
+{
+    width:100%;
+    font-size:1.1em;
+    padding: 17px 19px 18px;
+    background-color:#d12027;
+}
+.btnTopupConcel [type=button],.btnTopupConcel input[type=submit]
+{
+    width:100%;
+    font-size:1.1em;
+    padding: 17px 19px 18px;
+    background-color:#CCCCCC;
+}
+
+.BigInput input[type=text], .BigInput Input[type=Password], .BigInput Input[type=file], .BigInput textarea
+{
+    height: 50px;
+    padding: 0 14px;
+    max-width: 100%;
+    border-radius: 2px;
+    border: 1px solid silver;
+    background: #FFF;
+    font-size: 1.3em;
+}
+.BigInput input[type=text]:focus, .BigInput Input[type=password]:focus, .BigInput Input[type=file]:focus, .BigInput textarea:focus
+{
+        border-color:#339900;
+        box-shadow: 0 0 1px #a5c7fe;
+        -moz-box-shadow: 0 0 1px #a5c7fe;
+        -webkit-box-shadow: 0 0 1px #a5c7fe;
+}
+
+#mAgreementCheck input[type=checkbox]
+{
+    width:20px;
+    height:20px;
+}
+input[type=radio]
+{
+    background-color: Transparent; 
+    width:1.3em;
+    height:1.3em;
+}
+label
+{
+    margin-right:20px;
+}
+.ControlRadioCheck input[type=radio] 
+{
+    
+}
+
+input[type=button].btnCatalog, input[type=submit].btnCatalog
+{
+    font-size:1.1em;
+    padding: 17px 8px 18px;
+    margin-right:6px;
+    font-family:微軟正黑體;
+}
+
+input[type=button].btnCatalog:hover, input[type=submit].btnCatalog:hover
+{
+    font-size:1.1em;
+    padding: 17px 8px 18px;
+    box-shadow: 1px 1px 1px 0px #feb900;
+    font-family:微軟正黑體;
+    
+    animation-duration: 0.5s;
+    -webkit-animation-duration: 0.5s;
+    
+    animation-name: btn_slidein;
+    -webkit-animation-name: btn_slidein;
+    
+    animation-direction: alternate;    
+    -webkit-animation-direction: alternate;
+    
+    /**animation-name: btn_slidein;
+  transition-duration: .2s, 1s;
+  transition-timing-function: linear, ease-in;
+  transition-delay: 0s, 1s;**/
+}
+
+@keyframes btn_slidein {
+          from {
+            background-color:#d12027;
+            padding: 17px 8px 18px;
+          }
+
+          to {
+            background-color:#b61c1c;
+            padding: 17px 8px 18px;
+          }
+        }
+        
+input[type=button].btnCatalogDown, input[type=submit].btnCatalogDown
+{
+    font-size:1.1em;
+    padding: 16px 8px 18px;
+    background-color:#b61c1c;
+    margin-right:7px;
+    box-shadow: 1px 1px 1px 0px #feb900;
+    font-family:微軟正黑體;
+}
+.btnCatalogDown:hover
+{
+    box-shadow: 1px 1px 1px 0px #feb900;
+}
+.DivAdditional
+{
+    width:300px;
+}
+.DivAdditional a:link, .DivAdditional a:visited
+{
+    color:#d12027;
+    font-size:1.6em;
+    text-decoration:underline;
+    font-weight:bold;
+    }
+.DivAdditional a:hover
+{
+    color:#da4d52;
+    }
+.btnAdditional input[type=button], .btnAdditional input[type=submit]
+{
+    color:#c39b4e;
+    background-color:#FFF;
+    font-family: proxima-nova,sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    border-radius: 0.4em;
+    box-shadow: 0 0 1px rgba(0,0,0,.4);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+    padding:8px 105px 5px 105px;
+    margin-top:10px;
+    margin-bottom:5px;
+}
+
+/*********************************************
+Cash
+*********************************************/
+.CardListGold
+{
+    color:#d12027;
+    }
+.CardListCash
+{
+    color:#d12027;
+    font-size:21px;
+    font-weight:bold;
+    }
+.CardListSearch
+{
+    color: #07b860;
+    }
+/*********************************************
+Gold
+*********************************************/
+.Gold
+{
+    color: #feb900;
+    }
+/*********************************************
+Member -> CardList 
+*********************************************/
+.divRefund
+{
+    position: relative;
+    }
+.divRefundNotes {
+	background: url(/App_Themes/Basic_Theme/WebNew/hover.png) no-repeat;
+	width: 120px;
+	height: 65px;
+	position: absolute;
+    text-align: center;
+	padding: 10px 12px 10px;
+	color:#d12027;
+	top: -47px;
+	left: -34px;
+}
+.btnDefault input[type=button], .btnDefault input[type=submit]
+{
+    display: inline-block;
+    border: 0;
+    color: #FFF;
+    font-weight: 400;
+    font-family: proxima-nova,sans-serif;
+    line-height: 1.42857;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    border-radius: 0.2em;
+    padding: 3px 20px 2px;
+}
+.btnDefault .btnCard input[type=button], .btnCard input[type=submit]
+{
+    padding: 5px 10px 4px;
+    margin-right:8px;
+    margin-top:10px;
+}
+.btnSendOrder input[type=button], .btnSendOrder input[type=submit]
+{
+    font-size:1.6em;
+    width:100%;
+    padding-top:5px;
+    padding-bottom:5px;
+    font-weight:bold;
+    border-radius: 0.2em;
+}
+.btnDelProd input[type=button], .btnDelProd input[type=submit]
+{
+    background-image:none;
+    background-color:#CCCCCC;
+    color:#888888;
+    font-size:0.8em;
+    padding:0px 5px 0px 5px;
+    border-radius: 0.1em;
+    }
+.btnMaster input[type=button], .btnMaster input[type=submit]
+{
+    background-image:none;
+    background-color:#CCCCCC;
+    color:#888888;
+    font-size:0.8em;
+    padding:0px;
+    border-radius: 0.1em;
+    height:0px;
+    width:0px;
+}
+.btnPay input[type=button], .btnPay input[type=submit]
+{
+    display: inline-block;
+    border: 0;
+    color: #000;
+    font-weight: 400;
+    background-color:#CCCCCC;
+    font-family: proxima-nova,sans-serif;
+    line-height: 1.42857;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    border-radius: 0.2em;
+    padding: 3px 20px 2px;
+}
+/*********************************************
+Web -> WO03
+*********************************************/
+.changecolor0{color:#FF0000;}
+.changecolor1{color:#0066FF;}
+/*********************************************
+Member -> CardList -> CheckBox
+*********************************************/
+.chkBox input[type=checkbox]
+{   
+        transform: scale(1.6);
+    }
+.chkBox input[type=checkbox] + label
+{
+    margin-left:8px;
+    font-size:1.15em;
+}
+.chkBox input[type=checkbox]:checked + label
+{
+    color: #d12027;
+}
+/*********************************************
+Member -> CardList -> DropDownList
+*********************************************/
+.ddlWidth
+{
+    width:450px;
+    }
+/*********************************************
+Member -> NewBanner -> Image
+*********************************************/
+.NewBannerItem
+{
+    width:400px;
+    height:280px;
+    border:0px;
+    }
+.NewBannerSubject
+{
+    color:#c39b4e;
+    font-weight:bold;
+    width:235px;
+}
+.NewBannerContents
+{
+    margin-top:10px;
+    font-size:0.9em;
+    width:235px;
+    line-height:30px;
+    text-align: justify;
+    text-justify:inter-ideograph;
+}
+/*********************************************
+UC
+*********************************************/
+.ucStore
+{
+    width:160px;
+}
+/*********************************************
+Templage btnLogout
+*********************************************/
+.btnLogout input[type=button], .btnLogout input[type=submit]
+{
+    font-size:1em;
+    background: transparent;
+    display: inline-block;
+    padding: 0px;
+    border: 0;
+    color: #d12027;
+    font-weight: 400;
+    font-family: proxima-nova,sans-serif;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    border-radius: 0px;
+    box-shadow: 0 0 0px rgba(0,0,0,.1);
+}
+/*********************************************
+Order1 SearchStore
+*********************************************/
+.btnSearchStore input[type=button], .btnSearchStore input[type=submit]
+{
+    background-color:#d12027;
+    font-size:0.8em;
+    display: inline-block;
+    padding: 4px 5px;
+    border: 0;
+    color: #FFF;
+    font-weight: 400;
+    font-family: proxima-nova,sans-serif;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    border-radius: 3px;
+    box-shadow: 0 0 0px rgba(0,0,0,.1);
+}
+.btnPublic input[type=button], .btnPublic input[type=submit]
+{
+    background-color:#d12027;
+    font-size:0.9em;
+    display: inline-block;
+    padding: 5px 12px;
+    border: 0;
+    color: #FFF;
+    font-weight: 400;
+    font-family: proxima-nova,sans-serif;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    border-radius: 3px;
+    box-shadow: 0 0 0px rgba(0,0,0,.1);
+}
+/*********************************************
+表單文字
+*********************************************/
+.FormTitle
+{
+    font-weight:800;
+    }
+/*********************************************
+表單-必填
+*********************************************/
+em
+{
+    color:Red;
+    margin-left:3px;
+}
+/*********************************************
+表單-Submit Top Border
+*********************************************/
+.SubmitTopBorder
+{
+    font-size:1.6em;
+    margin-bottom:20px;
+    padding-bottom:25px;
+    border-bottom:solid 1px #dddddd;
+
+}
+/*********************************************
+表單-Submit Footer Border
+*********************************************/
+.SubmitBorder
+{
+    margin-top:20px;
+    margin-bottom:20px;
+    padding-top:25px;
+    border-top:solid 1px #dddddd;
+
+}
+/*********************************************
+ModalPopupExtender
+*********************************************/
+.popPanel
+{
+    border: 3px solid #666666;
+    background-color: #FFFFFF;
+}
+.modalBackground
+{
+    background-color: #000000;
+    filter: alpha(opacity=50);
+    opacity: 0.7;
+    border: 3px solid #CECFCE;
+}
+.popSession
+{
+    text-align:center;
+    background-color: #f9f0d9;
+    padding:50px 100px;
+
+    border-radius:10px;
+}
+/*********************************************
+主視窗Table
+*********************************************/
+.TableBorder
+{
+    border:solid 1px #dddddd;
+    background-color:#FFF;
+    }
+.fontGreen
+{
+    color: #07b860;
+    }
+.MealSeq
+{
+    background-color:#07b860;
+    color:#FFF;
+    padding:0 5px;
+    }
+/*********************************************
+mLogin
+*********************************************/
+#mLogin
+{
+  margin-left:auto;
+  margin-right:auto;
+}
+#mTab1
+{
+    float:right;
+    width:400px;
+    height:300px;
+    color:#545454
+}
+#mTab1Title
+{
+    font-size:2em;
+    text-align:center;
+    margin-bottom:30px;
+}
+#mTab1Center
+{
+    font-size:1.3em;
+    line-height:1em
+}
+.mTab1App
+{
+    padding:30px;
+    margin-top:10px;
+}
+#mTab2
+{
+    width:520px;
+    float:right;
+    margin-left:60px;
+    padding:30px;
+    border:solid 1px #dddddd;
+}
+.mTab2Input input[type=text], .mTab2Input Input[type=Password]
+{
+    width:450px;
+}
+.WO01CustName
+{
+   width:250px;
+    }
+.WO01AreaCode
+{
+    width:90px;
+}
+.WO01Tel
+{
+    width:150px;
+}
+.WO01Ext
+{
+    width:75px;
+}
+.WO01SearchStore
+{
+    width:155px;
+}
+.WO01EGift
+{
+    width:200px;
+}
+/*********************************************
+WO02
+*********************************************/
+.btnChangeProd  
+{
+    width:25px;
+}
+.divOver:hover
+{
+    background-color:#f5f5f5;
+    }
+.ModalMailTitle
+{
+    background-color:#c39b4e; 
+    text-align:center;
+    color:#FFF;
+    padding:5px;
+    }
+.ProdDelete
+{
+    text-decoration: line-through;
+    }
+.ChangeProd
+{
+     width:170px;
+     height:60px;
+     font-size:0.8em;
+    }
+.DivAdditional
+{
+    border:6px #c39b4e solid;
+
+    margin-top:5px;
+    text-align:center;
+    background-color:#FFF;
+    padding:10px;
+}
+
+.DivAdditional .AdditionalMsg
+{
+    color:#9b5e28;
+    }
+.ddlQty
+{
+    width:70px;
+}
+.divSaleProdFocus
+{
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:1px; 
+    padding: 3px 7px 7px 7px; 
+    border-radius:5px;
+    background: #ffa010; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffa010 0%, #febc25 50%, #ffa010 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffa010 0%,#febc25 50%,#ffa010 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ffa010 0%,#febc25 50%,#ffa010 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa010', endColorstr='#ffa010',GradientType=0 ); /* IE6-9 */
+}
+.divSaleProdFocus .Subject
+{
+    font-size:1.3em;
+    color:#FFF;
+}
+.divSaleProdFocus .Content
+{
+    font-size:0.7em;    
+    background-color:#FFF;
+    border-radius:5px;
+    border:solid 1px #c88e00;
+    padding:15px 10px;
+}
+.divSaleProdFocus .Content .Tab
+{
+    width:80px;
+    text-align:center;
+    margin:0px 4px;
+}
+.dropdown select {
+     -webkit-appearance: none;  /*Removes default chrome and safari style*/
+     -moz-appearance: none;  /*Removes default style Firefox*/
+     width:45px;
+     height:20px;
+  }
+.More
+{
+    margin-left:10px;
+    }
+.More a
+{
+    color:#d12027;
+    text-decoration:underline;
+    font-size:0.7em;
+    font-weight:bold;
+    }
+.More a:link .More a:visited
+{
+    color:#FFF;
+}
+.More a:hover
+{
+    color:#FFF;
+}
+/*********************************************
+WO03
+*********************************************/
+.OrderAdditional
+{
+    padding:0px;
+    width:100%;
+}
+.btnAdditionalTitle
+{
+    font-weight:bold;
+    color:#FFF;
+    background-color:#c39b4e;
+    padding-top:0px;
+}
+.OrderAdditional .Main
+{
+    padding:10px 20px 0px 20px;
+}
+/*********************************************
+MemberLogin
+*********************************************/
+.mLoginTitle
+{
+    text-align:center;
+    font-size:2.5em;
+    color:#5c5c5c;
+    font-family:proxima-nova,sans-serif;
+    margin-top:40px;
+    margin-bottom:20px;
+}
+#mLoginPwd
+{
+    margin-top:20px;
+    margin-bottom:10px;
+    }
+.mLoginFormTitle
+{
+    margin-top:15px;
+    margin-bottom:5px;
+    }
+.mLoginBtnLogin
+{
+    width: 450px;
+    max-width: 100%;
+    font-size:1.2em;
+}
+/*********************************************
+mAgreement
+*********************************************/
+#mAgreementCheck
+{
+    font-size:1.2em;
+    margin-top:15px;
+    margin-bottom:15px;
+}
+/*********************************************
+mRegister
+*********************************************/
+#mRegisterCenter
+{
+    border:solid 1px #dddddd;
+    height:660px;
+    background:#FFF;
+    margin-bottom:30px;
+    }
+#mRegister
+{
+    float:right;
+    padding:30px;
+    width:640px;
+    margin-right:30px;
+    }
+#mRegisterDescription
+{
+    background:#fafafa;
+    width:300px;
+    height:658px;
+    float:left;
+    padding:30px;
+    border-right:solid 1px #dddddd;
+ }
+#mRegisterDescription .Title
+{
+    font-size:1.5em;
+    background-color:#c39b4e;
+    text-align:center;
+    padding-top:5px;
+    padding-bottom:5px;
+    width:100%;
+    color:#FFF;
+}
+#mRegisterDescription .Description
+{
+    margin-top:10px;
+    color:#888888;
+
+}
+#mRegisterTable td
+{
+    height:50px;
+}
+#mRegisterTable .Title
+{
+    text-align:right;
+    width:190px;
+    padding-right:10px;
+}
+#mRegisterTable .TitleSmall
+{
+    text-align:right;
+    width:80px;
+    padding-right:10px;
+}
+#mRegisterTable .InputWidth
+{
+    width:340px;
+}
+.mRegisterSubmit
+{
+    width:200px;
+    margin-left:10px;
+    }
+/*********************************************
+TableFrom
+*********************************************/
+.TableFrom td
+{
+    height:50px;
+}
+.TableFrom .Title
+{
+    text-align:right;
+    width:150px;
+    padding-right:10px;
+}
+.TableFrom .TitleSmall
+{
+    text-align:right;
+    width:80px;
+    padding-right:10px;
+}
+.TableFrom .InputWidth
+{
+    width:340px;
+}
+/*********************************************
+mRegisterSMS
+*********************************************/
+#mRegisterSMSBthSave
+{
+    margin-top:20px;
+}
+/*********************************************
+mGetPwd
+*********************************************/
+.mGetPwdBtnSave
+{
+    margin-top:20px;
+    margin-bottom:20px;
+    width:226px;
+    }
+/*********************************************
+MemberDefault
+*********************************************/
+#MemberDefault
+{
+    margin-top: 20px;
+    border:solid 1px #dddddd;
+    background:#fafafa;
+}
+#MemberDefaultRight
+{
+    background-color:#FFF;
+    float:right;
+    padding:30px 50px 30px 50px;
+    width:770px;
+    border-left:solid 1px #dddddd;
+    }
+#MemberDefaultLeft
+{
+    width:220px;
+    float:left;
+    padding:25px;
+    }
+#MemberDefaultLeft .Title
+{
+    font-size:1.6em;
+    background-color:#c39b4e;
+    color:#FFF;
+    margin-bottom:10px;
+    padding-top:5px;
+    padding-bottom:2px;
+    text-align:center;
+}
+#MemberDefaultLeft .Box
+{
+    width:100%;
+    }
+#MemberDefaultLeft .td
+{
+    border-top:dotted 1px #474747;
+    }
+#MemberDefaultLeft ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    }
+#MemberDefaultLeft li
+{
+    display: block;
+    border-bottom:dotted 1px #474747;
+    margin-top:8px;
+    padding-top:3px;
+    padding-bottom:15px;
+    padding-left:42px;
+}
+#MemberDefaultLeft li a
+{
+    color:#785a26;
+    }
+#MemberDefaultLeft li a:hover
+{
+    color:#d12027;
+    }
+#MemberDefaultLeft li#Msg
+{
+ background:url(/App_Themes/Basic_Theme/WebNew/iconMsg.png) no-repeat;
+    }
+#MemberDefaultLeft li#Card
+{
+ background:url(/App_Themes/Basic_Theme/WebNew/iconCard.png) no-repeat;
+    }
+#MemberDefaultLeft li#Check
+{
+ background:url(/App_Themes/Basic_Theme/WebNew/iconCheck.png) no-repeat;
+    }
+#MemberDefaultLeft li#Key
+{
+ background:url(/App_Themes/Basic_Theme/WebNew/iconKey.png) no-repeat;
+    }
+#MemberDefaultLeft li#Data
+{
+ background:url(/App_Themes/Basic_Theme/WebNew/iconData.png) no-repeat;
+    }
+#MemberDefaultLeft li#Vip
+{
+ background:url(/App_Themes/Basic_Theme/WebNew/iconVip.gif) no-repeat;
+    }
+#MemberDefaultLeft li#Vip a
+{
+    color:#c39b4e;
+    }
+#MemberDefaultLeft li#Vip a:hover
+{
+    color:#d12027;
+}
+#MemberDefaultLeft div
+{
+    
+}
+#MemberDefaultLeft div a
+{
+     color:#785a26;
+    }
+#MemberDefaultLeft div a:hover
+{
+    color:#d12027;
+    }
+.divMsgNew
+{
+  margin-bottom:3px;
+}
+#MemberDefaultLeft .Puclic
+{
+    display: block;
+    border-bottom:dotted 1px #474747;
+    margin-top:8px;
+    padding-top:5px;
+    padding-bottom:15px;
+    padding-left:42px;
+}
+#MemberDefaultLeft .divMsg
+{
+    background:url(/App_Themes/Basic_Theme/WebNew/iconMsg.png) no-repeat;
+    border-bottom:dotted 1px #474747;
+    margin-top:8px;
+    padding-top:5px;
+    padding-bottom:15px;
+    padding-left:42px;
+}
+#MemberDefaultLeft .divCard
+{
+ background:url(/App_Themes/Basic_Theme/WebNew/iconCard.png) no-repeat;
+}
+#MemberDefaultLeft .divCheck
+{
+ background:url(/App_Themes/Basic_Theme/WebNew/iconCheck.png) no-repeat;
+    }
+#MemberDefaultLeft .divKey
+{
+ background:url(/App_Themes/Basic_Theme/WebNew/iconData.png) no-repeat;
+    }
+#MemberDefaultLeft .divData
+{
+ background:url(/App_Themes/Basic_Theme/WebNew/iconKey.png) no-repeat;
+    }
+#MemberDefaultLeft .divRefund
+{
+ background:url(/App_Themes/Basic_Theme/WebNew/iconRefund.png) no-repeat;
+    }
+#MemberDefaultLeft .divHistoryOrder
+{
+ background:url(/App_Themes/Basic_Theme/WebNew/iconHistoryOrder.png) no-repeat;
+    }
+#MemberDefaultLeft .divVip
+{
+ background:url(/App_Themes/Basic_Theme/WebNew/iconVip.gif) no-repeat;
+    }
+#MemberDefaultLeft .divVip a
+{
+    color:#c39b4e;
+    }
+#MemberDefaultLeft .divVip a:hover
+{
+    color:#d12027;
+    }
+
+/*********************************************
+navbar STYLE
+*********************************************/
+.navbar-red {
+  background-color: #FFF;
+  border-color: #FFF;
+  border-radius:0px;
+  border:0px;
+}
+.navbar-red .navbar-brand {
+  color: #FFF;
+}
+.navbar-red .navbar-brand:hover,
+.navbar-red .navbar-brand:focus {
+  color: #FFF;
+  background-color: transparent;
+}
+.navbar-red .navbar-text {
+  color: #ffffff;
+}
+.navbar-red .navbar-nav > li > a {
+  color: #c39b4e;
+  font-size:120%;
+}
+.navbar-red .navbar-nav > li > a:hover,
+.navbar-red .navbar-nav > li > a:focus {
+  color: #a8343c;
+  background-color: transparent;
+}
+.navbar-red .navbar-nav > .active > a,
+.navbar-red .navbar-nav > .active > a:hover,
+.navbar-red .navbar-nav > .active > a:focus {
+  color: #f8f8f8;
+  background-color: #b10e17;
+}
+.navbar-red .navbar-nav > .disabled > a,
+.navbar-red .navbar-nav > .disabled > a:hover,
+.navbar-red .navbar-nav > .disabled > a:focus {
+  color: #f8f8f8;
+  background-color: transparent;
+}
+.navbar-red .navbar-toggle {
+  border-color: #ffffff;
+}
+.navbar-red .navbar-toggle:hover {
+  background-color: #dc4f56;
+}
+
+.navbar-red .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+.navbar-red .navbar-collapse,
+.navbar-red .navbar-form {
+  border-color: #b10e17;
+}
+.navbar-red .navbar-nav > .open > a,
+.navbar-red .navbar-nav > .open > a:hover,
+.navbar-red .navbar-nav > .open > a:focus {
+  background-color: #b10e17;
+  color: #f8f8f8;
+}
+@media (max-width: 767px) {
+  .navbar-red .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-red .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-red .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #f8f8f8;
+    background-color: transparent;
+  }
+  .navbar-red .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-red .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-red .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #f8f8f8;
+    background-color: #b10e17;
+  }
+  .navbar-red .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-red .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-red .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #f8f8f8;
+    background-color: transparent;
+  }
+}
+.navbar-red .navbar-link {
+  color: #ffffff;
+}
+.navbar-red .navbar-link:hover {
+  color: #f8f8f8;
+}
+.navbar-red .btn-link {
+  color: #ffffff;
+}
+.navbar-red .btn-link:hover,
+.navbar-red .btn-link:focus {
+  color: #f8f8f8;
+}
+.navbar-red .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-red .btn-link:hover,
+.navbar-red .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-red .btn-link:focus {
+  color: #f8f8f8;
+}
+
+
+
+@media (max-width: 767px) 
+{
+    .wrapWidth
+    {
+        width:100%;
+    }
+    
+    #footer
+    {
+        padding-top:3px;
+        font-size:0.7em;
+    }
+    .imgLOGO
+    {
+        background-image:url(/App_Themes/Basic_Theme/WebNew/LOGO2.png);
+        width:54px;
+        height:35px;
+    }
+    #divCenterCall
+    {
+        width:100%;
+        margin-left:30px;
+        margin-right:30px;
+    }
+    #mLogin
+    {
+        width:310px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .mLoginTitle
+    {
+        font-size:1.9em;
+        margin-top:0px;
+        margin-bottom:10px;
+    }
+    #mTab1
+    {
+        width:360px;
+    }
+    #mTab1Title
+    {
+        font-size:1.8em;
+        margin-top:30px;
+    }
+    .mTab2InputWidth
+    {
+    width:360px;
+    }
+    .mLoginBtnLogin
+    {
+        width: 360px;
+        max-width: 100%;
+        font-size:1.2em;
+    }
+}
+
+/*********************************************
+ mispig : the Gridview style
+*********************************************/
+.gvStyle
+{
+    border: 1px solid #d8cfb7;
+    width: 100%;
+    color: #333333;
+}
+/*Header*/
+.gvStyle th
+{
+    background-color: #f9f0d9;
+    font-weight: lighter;
+    border: 1px solid #d8cfb7;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    border-bottom: 2px solid #d8cfb7;
+}
+/*OnMouseOver*/
+.gvStyle tr:hover
+{
+    background-color: #f9f0d9;
+}
+/*Rows*/
+.gvStyle td
+{
+    border: 1px solid #d8cfb7;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3px;
+    text-align: center;
+}
+.gvStyle .tdCenter
+{
+    text-align: center;
+}
+.gvStyle .tdLeft
+{
+    text-align:left;
+}
+.gvStyle .tdRight
+{
+    text-align:right;
+}
+/*Change Rows*/
+.gvStyle .alt
+{
+    background-color: #efefef;
+    border: 1px solid #ccc;
+    height: 25px;
+}
+/*Page*/
+.gvStyle .pgr table
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+.gvStyle .pgr td
+{
+    background-color: #E2EAF2;
+    border-width: 0px;
+    padding: 0px 3px 0px 3px;
+}
+.gvStyle .pgr a
+{
+    color: #666;
+    text-decoration: underline;
+    padding: 0px 3px 0px 3px;
+}
+.gvStyle .pgr a:hover
+{
+    color: #FF0000;
+    text-decoration: none;
+}
+.FontBigSize
+{
+    font-size:1.3em;
+}
+.FontNormalSize
+{
+    font-size:1.1em;
+}
+.FontSmallSize
+{
+    font-size:0.85em;
+}
+.FontWeightBold
+{
+    font-weight:bold;
+}
+.FontTextAlignCenter
+{
+    text-align:center;
+}
+.FontAlignRight
+{
+    text-align:right
+}
+.BarGray
+{
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(top, #ffffff 2%, #c4c4c4 99%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #ffffff 2%,#c4c4c4 99%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #ffffff 2%,#c4c4c4 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c4c4c4',GradientType=0 ); /* IE6-9 */
+}
+.OrderQty
+{
+    color: #07b860;
+    }
+/*********************************************
+ mispig : the Price style
+*********************************************/
+.Price
+{
+    color: #b10e17;
+}
+.divCardGold
+{
+    border:2px solid #feb900;
+    margin-bottom:20px;
+}
+.divCardGoldCarWidth
+{
+    width:300px;
+    }
+.divCardGold .Title
+{
+    background-color:#feb900;
+    text-align:center;
+    color:#FFF;
+    padding:5px;
+    margin-bottom:9px;
+}
+.divCardGold .TitleLeft
+{
+    margin-left:25px;
+    }
+.divCardGold .TitleRight
+{
+    margin-right:20px;
+    }
+.OrderBarGold
+{
+    border-bottom: dashed 1px #feb900; 
+    height:1px;
+    margin-top:7px;
+
+}
+/*********************************************
+ mispig : the CheckBox or Radio style: OnlyRead
+*********************************************/
+.chkProdWidth td
+{
+    width:220px; 
+}
+/*********************************************
+ mispig : the CheckBox or Radio style: OnlyRead
+*********************************************/
+.ModalPopupExtenderTitle
+{
+    color: #666666; 
+    margin-top: 10px; 
+    margin-left: 6px; 
+    font-size: 18px;
+    }
+/*********************************************
+ Tab
+*********************************************/
+.TabStyle .ajax__tab_header /*整體按鈕底*/
+{
+    font-size: 18px; /*文字大小*/
+    background-color:#FFFFFF;
+    
+}
+
+    .TabStyle .ajax__tab_header a /*整體按鈕底*/
+    {
+        color: #4f4f4f;
+    }
+
+.TabStyle .ajax__tab_body /*資料區*/
+{
+    
+    padding: 3px 0px;
+}
+
+.TabStyle .ajax__tab_outer /*預設-右邊*/
+{
+    background: url("/App_Themes/Basic_Theme/WebNew/tab-right.gif") no-repeat right; /*背景圖片，不重複，靠右邊對齊*/
+    padding-right: 4px; /*右邊距離→為此圖片的寬度，才能顯示圖片喔*/
+    height: 34px; /*圖片高度*/
+}
+
+.TabStyle .ajax__tab_inner /*預設-左邊*/
+{
+    padding-left: 4px; /*左邊距離→為此圖片的寬度*/
+    background: url("/App_Themes/Basic_Theme/WebNew/tab-left.gif") no-repeat; /*背景圖片，不重複*/
+    height: 34px; /*圖片高度*/
+}
+
+.TabStyle .ajax__tab_tab /*預設-中間*/
+{
+    background: url("/App_Themes/Basic_Theme/WebNew/tab.gif") repeat-x; /*背景圖片，水平重複*/
+    padding: 5px 20px 5px 20px; /*文字與圖片邊間隔*/
+    margin: 0; /*邊界為0*/
+}
+
+.TabStyle .ajax__tab_hover .ajax__tab_outer /*滑鼠經過-右*/
+{
+    background: url("/App_Themes/Basic_Theme/WebNew/tab-hover-right.gif") no-repeat right; /*背景圖片，不重複，靠右對齊*/
+}
+
+.TabStyle .ajax__tab_hover .ajax__tab_inner /*滑鼠經過-左*/
+{
+    background: url("/App_Themes/Basic_Theme/WebNew/tab-hover-left.gif") no-repeat; /*背景圖片，不重複*/
+}
+
+.TabStyle .ajax__tab_hover .ajax__tab_tab /*滑鼠經過-中*/
+{
+    background: url("/App_Themes/Basic_Theme/WebNew/tab-hover.gif") repeat-x; /*背景圖片，水平重複*/
+}
+
+.TabStyle .ajax__tab_active .ajax__tab_outer /*使用中-右*/
+{
+    background: url("/App_Themes/Basic_Theme/WebNew/tab-active-right.gif") no-repeat right; /*背景圖片，不重複，靠右對齊*/
+}
+
+.TabStyle .ajax__tab_active .ajax__tab_inner /*使用中-左*/
+{
+    background: url("/App_Themes/Basic_Theme/WebNew/tab-active-left.gif") no-repeat; /*背景圖片，不重複*/
+}
+
+.TabStyle .ajax__tab_active .ajax__tab_tab /*使用中-中*/
+{
+    background: url("/App_Themes/Basic_Theme/WebNew/tab-active.gif") repeat-x; /*背景圖片，水平重複*/
+}
+
+.TabStyle .ajax__tab_active a
+{
+    color: #d12027;
+}
+/**
+ * Checkbox Style
+ */
+.chkLabel
+{
+    width: 25px;
+	height: 25px;
+	background: #d4d4d4;
+	border-radius: 100%;
+	position: relative;
+	display: block;
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+	cursor: pointer;
+	overflow: hidden;
+}
+/**
+ * The checkbox Control
+ */
+
+.chkLabel input
+{
+    display: none;
+}
+
+/**
+ * The checked state
+ */
+
+.chkLabel input:checked + .slider > .sliderOff
+{
+    transition: all .5s ease;
+    background: #d12027;
+}
+
+.sliderOff
+{
+    transition: all .5s ease;
+    width: 19px;
+	height: 19px;
+	background: #ddd;
+	border-radius: 100%;
+	position: absolute;
+	background: #FFFFFF;
+	top:3px;
+    left:3px;
+	
+}

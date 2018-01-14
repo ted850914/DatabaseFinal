@@ -16,7 +16,7 @@ namespace Restaurant.Models
     {
         public int combo_id { get; set; }
         public int cell_id { get; set; }
-        public int number { get; set; }
+        public int quantity { get; set; }
     
         public virtual Meal Meal { get; set; }
         public virtual Meal Meal1 { get; set; }
